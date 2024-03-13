@@ -1,0 +1,148 @@
+# Composer
+/vendor
+/public
+!/public/.gitkeep
+# Ingore Lock to CI process
+composer.lock
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+*~
+.svn
+.cvs
+*.bak
+*.swp
+Thumbs.db
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+
+# wordpress specific
+src/root/wp-config.php
+src/wp-content/uploads/
+src/wp-content/blogs.dir/
+src/wp-content/upgrade/*
+src/wp-content/upgrade-temp-backup/*
+src/wp-content/backup-db/*
+src/wp-content/advanced-cache.php
+src/wp-content/wp-cache-config.php
+src/wp-content/cache/*
+src/wp-content/cache/supercache/*
+
+# wpengine specific
+src/root/.smushit-status
+src/root/.gitattributes
+src/root/_wpeprivate*
+src/wp-content/object-cache.php
+src/wp-content/mu-plugins/mu-plugin.php
+src/wp-content/mu-plugins/slt-force-strong-passwords.php
+src/wp-content/mu-plugins/stop-long-comments.php
+src/wp-content/mu-plugins/force-strong-passwords*
+src/wp-content/mu-plugins/wpengine-common*
+src/wp-content/mysql.sql
+src/wp-content/mu-plugins/wpengine-security-auditor.php
+src/wp-content/mu-plugins/wpe-wp-sign-on-plugin*
+
+# wp core (as of 4.9.5)
+src/root/db-config.php
+src/root/index.php
+src/root/license.txt
+src/root/readme.html
+/src/root/wp-activate.php
+/src/root/wp-app.php
+/src/root/wp-atom.php
+/src/root/wp-blog-header.php
+/src/root/wp-comments-post.php
+/src/root/wp-commentsrss2.php
+/src/root/wp-config-sample.php
+/src/root/wp-cron.php
+/src/root/wp-feed.php
+/src/root/wp-links-opml.php
+/src/root/wp-load.php
+/src/root/wp-login.php
+/src/root/wp-mail.php
+/src/root/wp-rdf.php
+/src/root/wp-rss.php
+/src/root/wp-rss2.php
+/src/root/wp-pass.php
+/src/root/wp-register.php
+/src/root/wp-settings.php
+/src/root/wp-signup.php
+/src/root/wp-trackback.php
+src/root/xmlrpc.php
+/src/root/wp-admin
+/src/root/wp-includes
+/src/wp-content/index.php
+/src/wp-content/themes/twentyten
+/src/wp-content/themes/twentyeleven
+/src/wp-content/themes/twentytwelve
+/src/wp-content/themes/twentythirteen
+/src/wp-content/themes/twentyfourteen
+/src/wp-content/themes/twentyfifteen
+/src/wp-content/themes/twentysixteen
+/src/wp-content/themes/twentyseventeen
+/src/wp-content/themes/twentyeighteen
+/src/wp-content/themes/twentynineteen
+/src/wp-content/themes/twentytwenty
+/src/wp-content/themes/index.php
+/src/wp-content/plugins/index.php
+/src/wp-content/plugins/akismet*
+
+# large/disallowed file types
+# a CDN should be used for these
+*.hqx
+*.bin
+*.exe
+*.dll
+*.deb
+*.dmg
+*.iso
+*.img
+*.msi
+*.msp
+*.msm
+*.mid
+*.midi
+*.kar
+*.mp3
+*.ogg
+*.m4a
+*.ra
+*.3gpp
+*.3gp
+*.mp4
+*.mpeg
+*.mpg
+*.mov
+*.webm
+*.flv
+*.m4v
+*.mng
+*.asx
+*.asf
+*.wmv
+*.avi

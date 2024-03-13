@@ -1,0 +1,27 @@
+{
+    "name": "alquemie/wpe-upstream",
+    "type": "project",
+    "version": "24.03.13.0",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        {
+          "type": "composer",
+          "url": "https://alquemie.github.io"
+        }
+    ],
+    "require": {
+        "alquemie/advanced-custom-fields-pro": "^6.0",
+        "alquemie/alquemie-config": "^0.2",
+        "alquemie/gravityforms": "^2.0",
+        "jenwachter/php-rsync": "*",
+        "roots/wp-password-bcrypt": "^1.0.0",
+        "wpackagist-plugin/easy-wp-smtp":"^2.2",
+        "wpackagist-plugin/wordpress-importer": "^0.8"
+    },
+    "require-dev": {
+
+    }
+}

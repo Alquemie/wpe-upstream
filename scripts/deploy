@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Exit immediately on errors, and echo commands as they are executed.
+set -e
+
+if [ "$(ls src/root/)" ]; then
+  rsync -azr --delete --exclude=".*" src/root/ public
+fi
+
+if [ "$(ls src/wp-content/)" ]; then
+  rsync -azr --delete --exclude=".*" src/wp-content/ public/wp-content
+fi

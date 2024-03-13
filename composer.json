@@ -1,0 +1,71 @@
+{
+  "name": "alquemie/site-upstream",
+  "version": "24.03.13.0",
+  "description": "Install Wordpress with Composer on WP Engine",
+  "type": "website",
+  "license": "proprietary",
+  "keywords": [],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://alquemie.github.io"
+    },
+    {
+      "type": "path",
+      "url": "upstream-config"
+    }
+  ],
+  "require": {
+    "alquemie/wpe-upstream": "*"
+  },
+  "require-dev": {
+    "symfony/filesystem": "^7.0"
+  },
+  "config": {
+    "vendor-dir": "vendor",
+    "preferred-install": "dist",
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "platform": {
+      "php": "8.2"
+    },
+    "allow-plugins": {
+      "composer/installers": true,
+      "johnpbloch/wordpress-core-installer": true
+    }
+  },
+  "extra": {
+    "wordpress-install-dir": "public/cms",
+    "build-env": {
+    },
+    "installer-paths": {
+      "public/wp-content/mu-plugins/wp-password-bcrypt/": ["roots/wp-password-bcrypt"],
+      "public/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "autoload": {
+    "classmap": [
+      "scripts/SyncHandler.php"
+    ]
+  },
+  "scripts": {
+    "pre-install-cmd": [
+      "Alquemie\\composer\\SyncHandler::sourceFiles"
+    ],
+    "post-install-cmd": [
+      "Alquemie\\composer\\SyncHandler::lastUpdated"
+    ],
+    "pre-update-cmd": [
+      "Alquemie\\composer\\SyncHandler::sourceFiles"
+    ],
+    "post-update-cmd": [
+      "Alquemie\\composer\\SyncHandler::lastUpdated"
+    ]
+  }
+}
