@@ -1,0 +1,54 @@
+name: Deploy WPE Dev Environment
+on:
+  push:
+    branches:
+     - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4
+    - name: Composer Install
+      uses: php-actions/composer@v6
+    - name: Deploy Themes
+      uses: wpengine/github-action-wpe-site-deploy@v3
+      with:
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+        WPE_ENV: ${{ vars.WPE_ENV_DEV }}
+        SRC_PATH: "public/wp-content/themes/"
+        REMOTE_PATH: "wp-content/themes"
+        PHP_LINT: FALSE
+        FLAGS: -azvr --delete --exclude=".*" 
+        CACHE_CLEAR: FALSE
+    - name: Deploy Plugins
+      uses: wpengine/github-action-wpe-site-deploy@v3
+      with:
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+        WPE_ENV: ${{ vars.WPE_ENV_DEV }}
+        SRC_PATH: "public/wp-content/plugins/"
+        REMOTE_PATH: "wp-content/plugins"
+        PHP_LINT: FALSE
+        FLAGS: -azvr --delete --exclude=".*" 
+        CACHE_CLEAR: FALSE
+    - name: Deploy Must-Use Plugins
+      uses: wpengine/github-action-wpe-site-deploy@v3
+      with:
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+        WPE_ENV: ${{ vars.WPE_ENV_DEV }}
+        SRC_PATH: "public/wp-content/mu-plugins/"
+        REMOTE_PATH: "wp-content/mu-plugins"
+        PHP_LINT: FALSE
+        FLAGS: -azr --exclude=".*" 
+        CACHE_CLEAR: FALSE
+    - name: Deploy Root Files
+      if: ${{ hashFiles('public/root') != '' }}
+      uses: wpengine/github-action-wpe-site-deploy@v3
+      with:
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+        WPE_ENV: ${{ vars.WPE_ENV_DEV }}
+        SRC_PATH: "public/root/"
+        REMOTE_PATH: ""
+        PHP_LINT: TRUE
+        FLAGS: -azr --exclude=".*" 
+        CACHE_CLEAR: TRUE
