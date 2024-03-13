@@ -27,5 +27,18 @@
     },
     "require-dev": {
 
+    },
+    "config": {
+      "vendor-dir": "vendor",
+      "preferred-install": "dist",
+      "optimize-autoloader": true,
+      "sort-packages": true,
+      "platform": {
+        "php": "8.2"
+      },
+      "allow-plugins": {
+        "composer/installers": true,
+        "johnpbloch/wordpress-core-installer": true
+      }
     }
 }
