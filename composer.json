@@ -1,6 +1,6 @@
 {
   "name": "alquemie/site-upstream",
-  "version": "24.03.13.0",
+  "version": "24.03.13.1",
   "description": "Install Wordpress with Composer on WP Engine",
   "type": "website",
   "license": "proprietary",
@@ -59,12 +59,14 @@
       "Alquemie\\composer\\SyncHandler::sourceFiles"
     ],
     "post-install-cmd": [
+      "Alquemie\\composer\\SyncHandler::addBcryptPwd",
       "Alquemie\\composer\\SyncHandler::lastUpdated"
     ],
     "pre-update-cmd": [
       "Alquemie\\composer\\SyncHandler::sourceFiles"
     ],
     "post-update-cmd": [
+      "Alquemie\\composer\\SyncHandler::addBcryptPwd",
       "Alquemie\\composer\\SyncHandler::lastUpdated"
     ]
   }

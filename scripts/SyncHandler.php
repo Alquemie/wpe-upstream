@@ -22,13 +22,21 @@ class SyncHandler
     }
     
     $fs->mirror($root . '/src/root', $root . '/public/root');
-
   }
   
   public static function lastUpdated() {
     $entry = date('l | jS \of F Y h:i:s A', time())."\n";
     $root = getcwd();
     file_put_contents($root . '/src/root/.gitkeep', $entry); 
+  }
+  
+  public static function addBcryptPwd() {
+    $fs = new Filesystem();
+    $root = getcwd();
+    
+    if ($fs->exists($root . '/vendor/roots/wp-password-bcrypt')) {
+      $fs->copy($root . '/vendor/roots/wp-password-bcrypt/wp-password-bcrypt.php', $root . '/public/wp-content/mu-plugins/wp-password-bcrypt.php');
+    }
   }
   
 }

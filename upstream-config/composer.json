@@ -1,7 +1,7 @@
 {
     "name": "alquemie/wpe-upstream",
     "type": "project",
-    "version": "24.03.13.0",
+    "version": "24.03.14.2",
     "repositories": [
         {
             "type": "composer",
